@@ -8,7 +8,6 @@ $(function () {
       "确定是否退出?",
       { icon: 3, title: "提示" },
       function (index) {
-        //do something
         // 1.清空 token
         localStorage.removeItem("token");
         // 2.回到登录页面
@@ -60,11 +59,11 @@ function renderAvatar(user) {
   if (user.user_pic !== null) {
     // 渲染图片头像
     $(".layui-nav-img").attr("src", user.user_pic).show();
-    $("text-avatar").hide();
+    $(".text-avatar").hide();
   } else {
     // 渲染文本图像
     $(".layui-nav-img").hide();
     var first = name[0].toUpperCase();
-    $("text-avatar").html(first).show();
+    $(".text-avatar").html(first).show();
   }
 }
