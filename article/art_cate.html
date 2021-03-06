@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
@@ -42,15 +42,15 @@
             <td>{{$value.name}}</td>
             <td>{{$value.alias}}</td>
             <td>
-                <button type="button" class="layui-btn layui-btn-xs" id="btnEditCate"
+                <button type="button" class="layui-btn layui-btn-xs btn-edit" id="btnEditCate"
                     data-id="{{$value.Id}}">编辑</button>
-                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>
+                <button type="button" class="layui-btn layui-btn-danger layui-btn-xs btn-delete" data-id="{{$value.Id}}">删除</button>
             </td>
         </tr>
         {{/each}}
     </script>
 
-    <!-- 添加数据的弹出层 -->
+    <!-- 添加分类弹出层 -->
     <script type="text/html" id="dialog-add">
         <form class="layui-form" id="form-add">
             <div class="layui-form-item">
@@ -76,9 +76,11 @@
         </form>
     </script>
 
-    <!-- 编辑数据的弹出层 -->
+    <!-- 修改分类弹出层 -->
     <script type="text/html" id="dialog-edit">
-        <form class="layui-form" id="form-edit">
+        <form class="layui-form" id="form-edit" lay-filter="form-edit">
+            <!-- 隐藏域,保存ID值 -->
+            <input type="hidden" name="Id">
             <div class="layui-form-item">
                 <label class="layui-form-label">分类名称</label>
                 <div class="layui-input-block">
@@ -95,8 +97,7 @@
             </div>
             <div class="layui-form-item">
                 <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit lay-filter="formDemo">立即修改</button>
-                    <!-- <button type="reset" class="layui-btn layui-btn-primary">重置</button> -->
+                    <button class="layui-btn" lay-submit lay-filter="formDemo">确认修改</button>
                 </div>
             </div>
         </form>
